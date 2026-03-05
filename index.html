@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="images/Logo_birefnet.png">
+</head>
+
+<body>
+  <!-- Todo: This is a Header -->
+  <header>
+    <h1><a href="">Tic Tac Toe</a></h1>
+
+    <div class="coin_bar">
+      <div class="coin_img"></div>
+      <div class="coin">500</div>
+      <div class="plus_icon"><i class="fa-regular fa-plus"></i></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="show_winner_box">
+        <div class="win">You Win</div>
+
+        <div class="winner">
+          <div class="light-holder one">
+            <div class="dot"></div>
+            <div class="light"></div>
+          </div>
+
+          <div class="light-holder two">
+            <div class="dot"></div>
+            <div class="light"></div>
+          </div>
+
+          <div class="players">You <p class="score you">0</p>
+          </div>
+          <div class="players">Bot <p class="score bot">0</p>
+          </div>
+        </div>
+
+        <div class="another_content">
+          <div class="options shoping"><i class="fa-solid fa-shop"></i>
+            <p id="text">Shop</p>
+          </div>
+          <div class="options retry"><i class="fa-solid fa-rotate"></i>
+            <p id="text">Retry</p>
+          </div>
+          <div class="options home"><i class="fa-solid fa-house"></i>
+            <p id="text">Home</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop_main_box">
+        <div class="header_shop_title">Shop</div>
+        <div class="close_shop_box">×</div>
+
+        <div class="section">
+          <div class="sec boad">Boad</div>
+          <div class="sec background">Background</div>
+          <div class="sec mode">Mode</div>
+        </div>
+
+        <!-- Todo: This is Boad Shoping Section -->
+        <div class="main_shoping">
+          <div class="boads" style="--clr:#7818d9;">
+            <img src="images/1st Boad_img.png" class="boad_img">
+            <div class="lock_price"></div>
+          </div>
+
+          <div class="boads" style="--clr:#abc4ff;">
+            <img src="images/2nd Boad_img.png" class="boad_img">
+            <div class="lock_price"></div>
+          </div>
+
+          <div class="boads" style="--clr:#2d6a4f;">
+            <img src="images/3rd Boad_img.png" class="boad_img">
+            <div class="lock_price"></div>
+          </div>
+
+          <div class="boads">
+            <img src="images/4th Boad_img.png" class="boad_img">
+            <div class="lock_price "></div>
+          </div>
+
+          <div class="boads">
+            <img src="images/5th Boad_img.png" class="boad_img">
+            <div class="lock_price "></div>
+          </div>
+
+          <div class="boads">
+            <img src="images/6th Boad_img.png" class="boad_img">
+            <div class="lock_price  img_circle"></div>
+          </div>
+
+          <div class="boads">
+            <img src="images/7th Boad_img.png" class="boad_img">
+            <div class="lock_price "></div>
+          </div>
+
+          <div class="boads">
+            <img src="images/8th Boad_img.png" class="boad_img">
+            <div class="lock_price "></div>
+          </div>
+
+          <div class="boads">
+            <img src="images/9th Boad_img.png" class="boad_img">
+            <div class="lock_price "></div>
+          </div>
+
+          <div class="boads">
+            <img src="images/10th Boad_img.jpg" class="boad_img" id="ten_boad_img">
+            <div class="lock_price "></div>
+          </div>
+
+        </div>
+
+        <!-- Todo: This is Background_Img Shoping Section -->
+        <div class="BG_shoping_section">
+          <div class="BG_Shoping" id="bg_changed_0"><img src="images/BG_0_img.jpg" class="bg_img" />
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_1"><img src="images/BG_1_Z.png" class="bg_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_2"><img src="images/BG_2_Ghost.png" class="bg_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_3"><img src="images/BG_3_Dark.png" class="bg_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_4"><img src="images/BG_4_Horror_boby.png" class="bg_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_5"><img src="images/BG_5_Room.png" class="bg_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_6"><img src="images/BG_6_Dising.png" class="bg_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_7"><img src="images/BG_7_Dark_baby.png" class="bg_img baby_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_8"><img src="images/BG_8_Night_village.png" class="bg_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_9"><img src="images/BG_9_Anime.jpg" class="bg_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+
+          <div class="BG_Shoping" id="bg_changed_10"><img src="images/BG_10_Sky.jpg" class="bg_img" />
+            <div class="lock_price bg_dark"></div>
+          </div>
+        </div>
+
+        <!-- Todo: This is Mode Shoping Section -->
+        <div class="mode_shoping_section">
+          <div class="mode_section">Comming Soon</div>
+        </div>
+
+        <div class="msg">You don't have enough money.</div>
+
+      </div>
+
+      <!-- Todo: Main Game Playing Boad -->
+      <div class="game_boad">
+        <div class="game">
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+        </div>
+      </div>
+    </div>
+    <button id="reset-btn">Reset Game</button>
+  </main>
+
+  <div class="shop">
+    <i class="fa-solid fa-shop"></i>
+    <p id="shop_txt">Shop</p>
+  </div>
+
+  <div class="none"></div>
+
+  <audio id="sound" src="bottle-opening-wine-cork-pop-352701.mp3"></audio>
+  <script src="tic_tac_toe.js"></script>
+</body>
+
+</html>

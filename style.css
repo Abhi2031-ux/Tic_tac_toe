@@ -1,0 +1,691 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: cursive;
+}
+
+body {
+    background-image: url('images/BG_0_img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+}
+
+header {
+    height: 40px;
+    background-color: #19191395;
+}
+
+h1 {
+    height: 40px;
+    align-items: center;
+    display: flex;
+    color: #f5f5f5;
+}
+
+a {
+    color: #f5f5f5;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+.coin_bar {
+    height: 30px;
+    background-color: #3d3d3dde;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.coin_img {
+    height: 25px;
+    width: 25px;
+    background-image: url("images/Chess_coin.png");
+    background-size: cover;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-bottom: 1px;
+}
+
+.coin {
+    height: 30px;
+    color: #e0d5d5e7;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 7px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.plus_icon {
+    height: 100%;
+    width: 30px;
+    font-size: 20px;
+    border-left: 1px solid #fff;
+    color: #e0d5d5e7;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.plus_icon:hover {
+    font-size: 22px;
+    /* text-shadow: 0 0 5px #fff; */
+}
+
+.container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game_boad {
+    height: 64vmin;
+    width: 64vmin;
+    border-radius: 20px;
+    background-color: #30bf54de;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow: 5px 5px 20px #dfdada;
+}
+
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+}
+
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+    font-size: 8vmin;
+    background-color: #f5f5f5;
+    color: #191913;
+    /* smooth transitions for hover, move and state changes */
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 200ms ease;
+}
+
+.box:hover {
+    box-shadow: 2px 2px 10px #898282;
+}
+
+/* visual state when a box is disabled (played) */
+.box:disabled {
+    opacity: 0.9;
+    cursor: not-allowed;
+}
+
+/* animation for computer moves */
+.computer-move {
+    animation: computerPop 360ms ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+@keyframes computerPop {
+    0% {
+        transform: scale(0.96);
+        background-color: #f5f5f5;
+    }
+
+    50% {
+        transform: scale(1.06);
+        background-color: #ffeaa7;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: #f5f5f5;
+    }
+}
+
+#reset-btn {
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #191913;
+    color: #fff;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 10px #191913;
+    cursor: pointer;
+}
+
+#reset-btn:hover {
+    font-size: 1.30rem;
+}
+
+#new-btn {
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #191913;
+    color: #fff;
+    border-radius: 1rem;
+    border: none;
+}
+
+.show_winner_box {
+    height: 330px;
+    width: 330px;
+    border-radius: 20px;
+    background-color: #023047;
+    position: absolute;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.win {
+    height: 45px;
+    width: 200px;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: math;
+    color: #fff;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-color: #13c4e7;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 17%;
+}
+
+.win::before {
+    content: "";
+    height: 40px;
+    width: 35px;
+    border-bottom-right-radius: 2px;
+    background: #09aecf;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 99%, 45% 50%);
+    position: absolute;
+    left: 31px;
+    top: 13px;
+    box-shadow: 0 3px 10px #000;
+}
+
+.win::after {
+    content: "";
+    height: 40px;
+    width: 35px;
+    border-bottom-right-radius: 2px;
+    background: #09aecf;
+    position: absolute;
+    clip-path: polygon(0 0, 100% 0, 55% 50%, 100% 100%, 0 100%);
+    right: 30px;
+    top: 13px;
+    box-shadow: 0 3px 10px #000;
+}
+
+/* Todo: This is a Lighting */
+
+.light-holder {
+    position: absolute;
+    height: 200px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    width: 15px;
+    height: 5px;
+    background-color: #0a0a0a;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.light {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
+    background: transparent;
+}
+
+.light {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg,
+            rgba(88, 101, 242, 1) 0%,
+            rgba(255, 255, 255, 0) 75%,
+            rgba(255, 255, 255, 0) 100%);
+}
+
+.one {
+    left: 54px;
+    top: 50px;
+}
+
+.two {
+    right: 50px;
+    top: 50px;
+}
+
+.winner {
+    height: 150px;
+    width: 250px;
+    font-size: 13vmin;
+    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    margin: 2% 9% 0;
+}
+
+.players {
+    height: 70px;
+    width: 60px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: Arial;
+    border-radius: 10px;
+    background-color: #1b263b;
+    color: #fff;
+    box-shadow: 2px 3px 10px #085b6c;
+    margin-top: 30px;
+    text-shadow: 1px 1px 5px #fff;
+}
+
+.score {
+    font-size: 35px;
+}
+
+.another_content {
+    height: 85px;
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    margin-bottom: 10px;
+}
+
+.options {
+    height: 55%;
+    width: 25%;
+    color: #eee5e5;
+    font-size: 2rem;
+    border-radius: 10px;
+    background-color: #191913;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow: 0 0 10px #000;
+    cursor: pointer;
+}
+
+.options:hover {
+    font-size: 2.2rem;
+    background-color: #24241ec4;
+    box-shadow: 0 0 10px #13c4e7;
+}
+
+#text {
+    position: absolute;
+    bottom: 2px;
+    font-size: 10px;
+}
+
+/* Todo: This is a shop main box */
+
+.shop_main_box {
+    height: 400px;
+    width: 400px;
+    border-radius: 20px;
+    background-color: #452e2e;
+    position: absolute;
+    z-index: 10;
+}
+
+.header_shop_title {
+    height: 40px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #291212;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.close_shop_box {
+    height: 30px;
+    width: 30px;
+    font-size: 33px;
+    border-radius: 8px;
+    color: #ffaa00;
+    background-color: #fff;
+    position: absolute;
+    top: 5px;
+    right: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 0 2px 2px;
+}
+
+.close_shop_box:hover {
+    box-shadow: 0 0 10px #bab1b1;
+}
+
+.section {
+    height: 30px;
+    width: 100%;
+    background-color: #e9e6e6;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+.sec {
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: math;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.sec:hover {
+    background-color: #efeaea;
+    box-shadow: 0 0 10px goldenrod;
+}
+
+.main_shoping {
+    height: 83%;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #f5f5f5;
+    overflow: auto;
+    column-count: 2;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.boads {
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: var(--clr);
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.2s ease-in all;
+}
+
+.boads:hover {
+    transform: scale(1.01);
+}
+
+.boad_img {
+    height: 99%;
+    width: 99%;
+    border-radius: 10px;
+}
+
+/* Todo: Lock_price Section */
+
+.lock_price {
+    height: 99%;
+    width: 99%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: inline-grid;
+    position: relative;
+    top: -148px;
+    background-color: #00000057;
+    box-shadow: 2px 2px 5px #7d7171;
+}
+
+.img_circle {
+    border-radius: 50%;
+}
+
+#lock {
+    display: none;
+}
+
+.lock-label {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(80, 80, 80);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 0 16px 0;
+}
+
+.label_seteled {
+    top: -96px;
+}
+
+.lock-wrapper {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-10deg);
+}
+
+.shackle {
+    background-color: transparent;
+    height: 5px;
+    width: 7px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    transition: all 0.3s;
+}
+
+.lock-body {
+    width: 15px;
+}
+
+#lock:checked+.lock-label .lock-wrapper .shackle {
+    transform: rotateY(150deg) translateX(3px);
+    transform-origin: right;
+}
+
+#lock:checked+.lock-label {
+    background-color: rgb(167, 71, 245);
+}
+
+.lock-label:active {
+    transform: scale(0.9);
+}
+
+.price_tag {
+    height: 25px;
+    width: 50px;
+    border-radius: 5px;
+    background-color: #291212;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #000;
+}
+
+.price_tag--up {
+    top: 110px;
+}
+
+.price_tag--down {
+    bottom: -36px;
+}
+
+.msg {
+    font-size: 14px;
+    border-radius: 10px;
+    background-color: #e3dada;
+    position: absolute;
+    color: #4a4343;
+    padding: 5px 10px;
+    font-weight: 600;
+    bottom: 10px;
+    margin: 0 80px;
+}
+
+.fa-rotate {
+    transition: transform 260ms ease;
+}
+
+.fa-rotate:hover {
+    transform: rotate(180deg);
+}
+
+.shop {
+    height: 50px;
+    width: 50px;
+    color: #291212;
+    border-radius: 50%;
+    font-size: 18px;
+    background-color: #ebe6e6d0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    box-shadow: 0 0 10px #fff;
+    cursor: pointer;
+}
+
+.shop:hover {
+    font-size: 20px;
+    background-color: #ebe5e5;
+    box-shadow: 0 0 10px #595d5e;
+}
+
+#shop_txt {
+    position: absolute;
+    bottom: -13px;
+    font-size: 10px;
+}
+
+/* Todo: This is a BG-Shoping Section */
+
+.BG_shoping_section {
+    height: 83%;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: linear-gradient(41deg, #433737, #492f2f);
+    overflow: auto;
+}
+
+.BG_Shoping {
+    height: 200px;
+    width: 95%;
+    border-radius: 15px;
+    border: 0.5px solid #c9bbbb;
+    background-color: #f5f5f5;
+    margin: 30px 7px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.2s ease-in all;
+    box-shadow: 0 0 3px #f5f5f5;
+}
+
+.BG_Shoping:hover {
+    transform: scale(1.01);
+}
+
+.bg_img {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.bg_dark {
+    top: -200px;
+    border-radius: 17px;
+}
+
+/* Todo: This is a Mode Shoping Section */
+
+.mode_shoping_section {
+    height: 83%;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #567556;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.mode_section {
+    height: 65%;
+    width: 70%;
+    font-size: 60px;
+    font-weight: 900;
+    border-radius: 20px;
+    background-color: #3d4f3d;
+    color: #04ff00;
+    margin: 20px 9px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.none_img {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .none_img {
+        display: none;
+    }
+
+    .baby_img {
+        display: block;
+    }
+}
