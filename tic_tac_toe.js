@@ -20,11 +20,13 @@ let mode_shoping_section = document.querySelector('.mode_shoping_section');
 let none = document.querySelector('.none');
 let msg = document.querySelector('.msg');
 
+music.play();
 
 let turnO = true;
 let gameActive = true;
 let your_score = 1;
 let box_score = 1;
+
 
 function only_closer(c1, c2, c3, c4, c5) {
     c1.style.display = 'none';
@@ -35,10 +37,11 @@ function only_closer(c1, c2, c3, c4, c5) {
 
 }
 
+
+
 only_closer(show_winner_box, shop_main_box, msg, BG_shoping_section, mode_shoping_section);
 
 // Todo: In-memory coin balance
-// let coinsBalance = 1000000;
 let coinsBalance = 500
 const winPatterns = [
     [0, 1, 2],
